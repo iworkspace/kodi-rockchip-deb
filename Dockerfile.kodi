@@ -214,7 +214,7 @@ RUN cmake ../kodi -DCMAKE_INSTALL_PREFIX=/usr/local -DCORE_PLATFORM_NAME=gbm -DA
 # Lets build & install pvr iptvsimple addon
 WORKDIR /src
 RUN git clone --branch Piers https://github.com/kodi-pvr/pvr.iptvsimple.git
-WORKDIR /src/visualization.shadertoy/build
+WORKDIR /src/pvr.iptvsimple/build
 RUN cmake -DADDONS_TO_BUILD=pvr.iptvsimple -DAPP_RENDER_SYSTEM=gles -DADDON_SRC_PREFIX=../.. -DCMAKE_INSTALL_PREFIX=/usr/local/share/kodi/addons -DCMAKE_BUILD_TYPE=Release -DPACKAGE_ZIP=1 /src/kodi/cmake/addons
 RUN make -j$(nproc) || make -j$(nproc) || make
 
